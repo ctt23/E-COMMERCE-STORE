@@ -4,16 +4,10 @@ import dotenv from 'dotenv'; // Importing dotenv to manage environment variables
 dotenv.config(); // Loading environment variables from .env file
 
 const app = express(); // Creating an instance of express or creating an express app
+const PORT = process.env.PORT || 5000; // Setting the port to the environment variable PORT or 5000
 
-app.use(express.json()); // Middleware to parse JSON bodies
-
-app.get('/', (req, res) => {
-  res.send('API is running...'); // Basic route to test if the server is running
+app.listen(PORT, () => {
+  console.log(`Server is running on PORT ${PORT}`); // Starting the server and logging the port
 });
 
-console.log(process.env.PORT); // Logging the environment variable PORT
 
-
-app.listen(5000, () => {
-  console.log(`Server running on port 5000`); // Starting the server and logging the mode and port
-});
